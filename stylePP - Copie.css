@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    /* Ajout de l'arrière-plan marin */
+    background-image: url('Images/mer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Garde l'image fixe pendant le défilement */
+}
+
+#plateau {
+    position: relative;
+    width: min(90vmin, 98vw);
+    height: 90vh;
+    max-width: 98vw;
+    /* background-color: transparent; Changé de #00f7ff à transparent pour laisser voir l'arrière-plan */
+    background-color: rgba(0, 247, 255, 0.3);/* semi transparence */
+	border: 3px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#PP-container {
+    position: absolute;
+    width: 10% !important;
+    transition: transform 50ms linear;
+    touch-action: none;
+}
+
+.obstacle-container {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+.obstacle-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.obstacle-container.second-obstacle img {
+    content: url('/Images/obstacle2.gif'); /* Utiliser obstacle2.gif pour le second obstacle */
+}
+
+#PP {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: center;
+    transition: transform 0.1s ease-out, opacity 0.2s ease-out; /* Ajout de la transition pour opacity */
+}
+
+/* Pour mobile uniquement */
+@media (pointer: coarse) {
+    #PP-container {
+        width: 15% !important;
+    }
+}
